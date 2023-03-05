@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        .frm{
+        background-color: rgb(230, 204, 166);
+        margin-left: 20%;
+        width: 500px;
+        height: 500px;
+        margin-top: 5%;
+        border: 10px solid grey;
+       }
+       label{
+        font-style: bold;
+        font-size: 18px;
+        font-weight: 200;
+        color: blueviolet;
+        margin-left: 3%;
+       }
+       .btn{
+        margin-left: 60%;
+        color: yellow;
+        background-color: black;
+        width: 12%;
+        height: 8%;
+        font-size: 15px;
+        margin-top: 3%;
+        border:2px solid red;
+       }
+       .btn:hover{
+        width:14%;
+        height:10%;
+        background-color: brown;
+        color:yellow;
+       }
+    </style>
+</head>
+<body style="background-color:cyan;">
+    <form method="post" action="register" class="frm">
+        {% csrf_token %}
+        <h1 style="font-weight: 700; font-size: 30px;text-align: center;"><u>Registration Form</u></h1><br><br>
+        <label>Username : </label>
+        <input type="text" name = "username" placeholder="Enter your name" style="margin-left: 3%;"><br><br>
+        <label>First_name : </label>
+        <input type="text" name="first_name" placeholder="Enter your first-name" style="margin-left:2%;"><br><br>
+        <label>Last_name : </label>
+        <input type="text" name="last_name" placeholder="Enter your last-name" style="margin-left:2%;"><br><br>
+        <label>Email address :</label>
+        <input type="email" name= "email" placeholder="examle @ mail.com"><br><br>
+        <label>Password : </label>
+        <input type="password" name ="password" style="margin-left: 5%;"><br><br>
+        <label style="margin-left: 0%;">Conf.Password : </label>
+        <input type="password" name = "password1"  style="margin-left: 2%;"><br><br>
+        <input type="button" style="margin-left: 25%;" value="Submit" class="btn">
+    </form>
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+</body>
+</html>
